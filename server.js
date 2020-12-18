@@ -12,8 +12,9 @@ app.use(express.json());
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
-// app.use("/", routes);
+const routes = require("./controller/dating_controller.js");
 
+app.use("/", routes);
 
 db.sequelize.sync({ force: true }).then(function () {
   app.listen(PORT, function () {
