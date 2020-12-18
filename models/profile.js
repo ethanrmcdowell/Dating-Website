@@ -1,7 +1,7 @@
 const { sequelize } = require(".");
 
 module.exports = (sequelize, DataTypes) => {
-    var User = sequelize.define("User", {
+    var Profile = sequelize.define("Profile", {
         username: {
             type: DataTypes.STRING,
             len: [1, 30],
@@ -22,5 +22,5 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.INTEGER
         }
     });
-    return User;
+    return Profile;
 }
