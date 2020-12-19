@@ -7,4 +7,8 @@ router.get("/", (req,res) => {
     res.render("index")
 }); 
 
+router.post("/signUp", (req,res) => {
+    res.render("profile")
+});
+
 module.exports = router;
