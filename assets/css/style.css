@@ -1,0 +1,19 @@
+:root {
+    --background: #d6eff0;
+    --btnyellow: #ffd200;
+    --navyellow: #f4e87c;
+    --powderblue: #9ad1d4;
+    --dimgray: #6b6d76;
+    --richblack: #0e0f19; 
+    --textcolor: #232323;
+}
+
+body {
+    background: var(--background);
+    font: 14px/150% 'Noto Sans', sans-serif;
+    color: var(--textcolor); 
+}
+
+nav {
+    background: var(--navyellow);
+}
