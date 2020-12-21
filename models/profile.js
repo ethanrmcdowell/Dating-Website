@@ -1,4 +1,4 @@
-const { sequelize } = require(".");
+// const { sequelize } = require(".");
 
 module.exports = (sequelize, DataTypes) => {
     var Profile = sequelize.define("Profile", {
