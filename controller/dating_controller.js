@@ -10,7 +10,6 @@ router.post("/login", passport.authenticate("local"), (req, res) => {
 
 router.post("/signup", (req, res) => {
     db.User.create({
-        email: req.body.email,
         password: req.body.password,
         username: req.body.username
     });

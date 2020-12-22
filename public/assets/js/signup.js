@@ -4,23 +4,20 @@ $(document).ready(function(){
     $("#signup-form").on("submit", (event) => {
         event.preventDefault();
         let userData = {
-            email: $.trim($("#email").val()),
             password: $.trim($("#password").val()),
             username: $.trim($("#username").val())
         }
-        if(!userData.email || !userData.password || !userData.username){
+        if(!userData.password || !userData.username){
             return;
         }
-        signupUser(userData.email, userData.password, userData.username);
-        $("#email").val("");
+        signupUser(userData.password, userData.username);
         $("#password").val("");
         $("#username").val("");
     });
 
 
-    function signupUser(email, password, username){
+    function signupUser(password, username){
         $.post("/signup", {
-            email: email,
             password: password,
             username: username
         })
@@ -28,5 +25,4 @@ $(document).ready(function(){
             window.location.replace("/profile");
         })
     }
-
 });
