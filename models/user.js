@@ -17,15 +17,15 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: true
         },
         hobby1id: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.STRING,
             allowNull: true
         },
         hobby2id: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.STRING,
             allowNull: true
         },
         hobby3id: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.STRING,
             allowNull: true
         }
     });
