@@ -1,18 +1,23 @@
-<h1>Bello, {{username}}!</h1>
+<h1>Bello, {{userProfile.username}}!</h1>
 
-<h2>{{personalStatement}}</h2>
+<h2>{{userProfile.personalStatement}}</h2>
 
-<ul class="hobby-list">
-    <li>{{hobby1id}}</li>
-    <li>{{hobby2id}}</li>
-    <li>{{hobby3id}}</li>
+<ul class="hobby-list"> You're faborite hobbies!
+    {{#if userProfile.hobby1id}}<li>{{userProfile.hobby1id}}</li>{{/if}}
+    {{#if userProfile.hobby2id}}<li>{{userProfile.hobby2id}}</li>{{/if}}
+    {{#if userProfile.hobby3id}}<li>{{userProfile.hobby3id}}</li>{{/if}}
 </ul>
 
 {{! List of Minion connections for user}}
 <h3>Check out your Minion connections!</h3>
 
 <ul class="connections-list">
-    <li>{{connection1id}}</li>
-    <li>{{connection2id}}</li>
-    <li>{{connection3id}}</li>
+    {{#each minionConnections}}
+        <li>{{username}}</li>
+        <ul>Enjoys:
+            {{#if hobby1id}}<li>{{hobby1id}}{{/if}}</li>
+            {{#if hobby2id}}<li>{{hobby2id}}{{/if}}</li>
+            {{#if hobby3id}}<li>{{hobby3id}}{{/if}}</li>
+        </ul>
+    {{/each}}
 </ul>
