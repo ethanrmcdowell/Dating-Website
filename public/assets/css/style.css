@@ -1,19 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Bree+Serif&family=Noto+Sans&display=swap');
+
 :root {
-    --background: #d6eff0;
-    --btnyellow: #ffd200;
-    --navyellow: #f4e87c;
-    --powderblue: #9ad1d4;
-    --dimgray: #6b6d76;
-    --richblack: #0e0f19; 
-    --textcolor: #232323;
+	--background: #d6eff0;
+	--btnyellow: #ffd200;
+	--navyellow: #f4e87c;
+	--powderblue: #9ad1d4;
+	--dimgray: #6b6d76;
+	--richblack: #0e0f19; 
+	--textcolor: #232323;
+}
+
+* {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0; 
 }
 
 body {
-    background: var(--background);
-    font: 14px/150% 'Noto Sans', sans-serif;
-    color: var(--textcolor); 
+	background-color: var(--background) !important;
+	font: 14px/150% 'Noto Sans', sans-serif;
+	color: var(--textcolor); 
+	padding: 0;
+	margin: 0; 
 }
 
 nav {
-    background: var(--navyellow);
+	position: relative;
+	z-index: 10;
+}
+
+.nav-yellow {
+	background-color: var(--navyellow); 
+	border-bottom: 10px solid (--powderblue) !important; 
+}
+
+#minion-hero {
+	box-sizing: border-box;
+	position: relative;
+	z-index: 0;
+	background-image: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,0), var(--background), var(--background), var(--background)), url('https://img.nickpic.host/aTwkP1.jpg');
+	background-position: top center; 
+	background-size: cover;
+	background-attachment: fixed; 
+	height: 850px;
+}
+
+.container {
+	width: 100%;
+	height: 700px;
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center; 
+	flex-flow: column nowrap; 
+}
+
+.landing {
+	font: 140px/100% 'Bree Serif', serif;
+	color: var(--btnyellow);
+	position: absolute;
+	text-shadow: 2px 2px #454545; 
+}
+
+.sub-landing {
+	margin: 140px auto 0 130px;
+	text-align: right;
+	font: 20px/100% 'Noto Sans', sans-serif;
+	text-transform: uppercase; 
+	letter-spacing: 2px;
+	word-spacing: 3px;
+	position: absolute;
+	color: white;
+	text-shadow: 1px 1px #454545; 
+}
+
+.sub-landing::before {
+	content: '♥ ';
+	color: #ff90bf;
+	text-shadow: 1px 1px #c4437a, 1px -1px #c4437a, -1px 1px #c4437a, -1px -1px #c4437a;
 }
