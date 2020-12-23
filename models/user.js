@@ -27,6 +27,10 @@ module.exports = (sequelize, DataTypes) => {
         hobby3id: {
             type: DataTypes.STRING,
             allowNull: true
+        },
+        avatarURL: {
+            type: DataTypes.STRING,
+            allowNull: true
         }
     });
     return User;
