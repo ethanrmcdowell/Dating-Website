@@ -2,7 +2,7 @@
 
 <h2>{{userProfile.personalStatement}}</h2>
 
-<ul class="hobby-list"> You're faborite hobbies!
+<ul class="hobby-list"> Your faborite hobbies!
     {{#if userProfile.hobby1id}}<li>{{userProfile.hobby1id}}</li>{{/if}}
     {{#if userProfile.hobby2id}}<li>{{userProfile.hobby2id}}</li>{{/if}}
     {{#if userProfile.hobby3id}}<li>{{userProfile.hobby3id}}</li>{{/if}}
@@ -15,9 +15,9 @@
     {{#each minionConnections}}
         <li>{{username}}</li>
         <ul>Enjoys:
-            {{#if hobby1id}}<li>{{hobby1id}}{{/if}}</li>
-            {{#if hobby2id}}<li>{{hobby2id}}{{/if}}</li>
-            {{#if hobby3id}}<li>{{hobby3id}}{{/if}}</li>
+            {{#if hobby1id}}<li>{{hobby1id}}</li>{{/if}}
+            {{#if hobby2id}}<li>{{hobby2id}}</li>{{/if}}
+            {{#if hobby3id}}<li>{{hobby3id}}</li>{{/if}}
         </ul>
     {{/each}}
 </ul>
