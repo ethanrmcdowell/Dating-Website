@@ -24,7 +24,7 @@ const routes = require("./controller/dating_controller.js");
 
 app.use("/", routes);
 
-db.sequelize.sync({force: true}).then(function () {
+db.sequelize.sync().then(function () {
   app.listen(PORT, function () {
     console.log("APP LISTENING ON PORT " + PORT);
     
