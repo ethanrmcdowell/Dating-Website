@@ -3,18 +3,18 @@
 <div class="container" id="login">
     <p>Login</p>
 </div>
-
-<div class="input-group mb-3">
-    <input type="text" class="form-control" placeholder="Username" aria-label="Recipient's username"
-        aria-describedby="basic-addon2">
-</div>
-
-<div class="input-group mb-3">
-    <input type="text" class="form-control" placeholder="Password" aria-label="Recipient's username"
-        aria-describedby="button-addon2">
-    <div class="input-group-append">
-        <button class="btn btn-outline-secondary" type="button" id="button-addon2">Login</button>
+<form id="login-form">
+    <div class="input-group mb-3">
+        <input id="user-name" type="text" class="form-control" placeholder="Username" aria-label="Recipient's username"
+            aria-describedby="basic-addon2">
     </div>
-</div>
 
-<button type="button" class="btn btn-primary">Sign Up</button>
+    <div class="input-group mb-3">
+        <input id="user-pass" type="text" class="form-control" placeholder="Password" aria-label="Recipient's password"
+            aria-describedby="button-addon2">
+    </div>
+
+    <button id="login-button" type="submit" class="btn btn-primary">Log In!</button>
+</form>
+
+<script type="text/javascript" src="/assets/js/login.js"></script>
