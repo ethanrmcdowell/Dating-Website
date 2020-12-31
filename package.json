@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/ethanrmcdowell/Dating-Website#readme",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "express": "^4.17.1",
     "express-handlebars": "^5.2.0",
     "express-session": "^1.17.1",
