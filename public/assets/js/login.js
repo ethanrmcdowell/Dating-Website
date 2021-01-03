@@ -22,9 +22,7 @@ $(document).ready(function() {
             username: username,
             password: password
         }).then(function(){
-            console.log("HI: BEFORE REPLACE!");
-            window.location.replace("/profile");
-            console.log("HI! AFTER REPLACE!");
+            window.location.replace("/profile/" + username);
         });
     }
 });
