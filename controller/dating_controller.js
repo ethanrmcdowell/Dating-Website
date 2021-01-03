@@ -7,13 +7,8 @@ const {Op} = require('sequelize');
 const isAuthenticated = require("../config/middleware/isAuthenticated");
 
 
-// router.post("/login", passport.authenticate("local"), function (req, res) {
-//     console.log("CONTROLLER POST /LOGIN ~~");
-//     res.json(req.user);
-// });
-
 router.post("/login", passport.authenticate("local", {
-    successRedirect: "/profile",
+    successRedirect: "/profile/username",
     failureRedirect: "/",
 }));
 
@@ -34,12 +29,11 @@ router.get("/", (req, res) => {
     res.render("index")
 });
 
-
-// router.get("/profile", isAuthenticated, (req, res) => {
-router.get("/profile", isAuthenticated, (req, res) => {
+// router.get("/profile/:username", isAuthenticated, (req, res) => {
+router.get("/profile/:username", (req, res) => {
         // Query for finding other users that match hobbies. 
-        // Need to get this info from page. At the moment, the current user's data is hardcoded
-        let currentUser = "username1";
+        let currentUser = req.params.username;
+        console.log(currentUser);
         let favoriteHobbies = ['Karate', 'Music', 'DIY'];
 
         db.User.findAll({
@@ -51,13 +45,13 @@ router.get("/profile", isAuthenticated, (req, res) => {
                         {hobby3id: favoriteHobbies}
                     ],
                     username: 
-                    {[Op.ne]: currentUser}
+                    {[Op.ne]: currentUser.replace(":", "")}
                 }
             })
             .then(usersData => {
                 let userArray = [];
                 usersData.forEach(user => {
-                    userArray.push(user.dataValues)
+                    userArray.push(user.dataValues);
                 });
 
                 // This Query gets the user's info for their profile.
