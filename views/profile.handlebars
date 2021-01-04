@@ -1,12 +1,20 @@
-<h1>Bello, {{userProfile.username}}!</h1>
+<h1>Bello, <span id="username">{{userProfile.username}}</span>!</h1>
 
-<h2>{{userProfile.personalStatement}}</h2>
+<h2>Personal Statement</h2>
+<div class="container">
+    <p>{{userProfile.personalStatement}}</p>
+</div>
 
-<ul class="hobby-list"> Your faborite hobbies!
+<h2>Your faborite hobbies!</h2>
+<ul class="hobby-list">
     {{#if userProfile.hobby1id}}<li>{{userProfile.hobby1id}}</li>{{/if}}
     {{#if userProfile.hobby2id}}<li>{{userProfile.hobby2id}}</li>{{/if}}
     {{#if userProfile.hobby3id}}<li>{{userProfile.hobby3id}}</li>{{/if}}
 </ul>
+
+<div class="container mb-3">
+    <button class="btn btn-primary" id="updateProfile" >Update Profile</button>
+</div>
 
 {{! List of Minion connections for user}}
 <h3>Check out your Minion connections!</h3>
@@ -21,3 +29,5 @@
         </ul>
     {{/each}}
 </ul>
+
+<script type="text/javascript" src="/assets/js/profile.js"></script>
