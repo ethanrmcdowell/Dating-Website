@@ -28,13 +28,36 @@ router.get("/", (req, res) => {
 });
 
 // router.get("/profile/:username", isAuthenticated, (req, res) => {
-router.get("/profile/:username", (req, res) => {
+    router.get("/profile/:username", (req, res) => {
+    
         // Query for finding other users that match hobbies. 
         let currentUser = req.params.username;
-        console.log(currentUser);
-        let favoriteHobbies = ['Karate', 'Music', 'DIY'];
-
-        db.User.findAll({
+        let favoriteHobbies = [];
+    
+    
+        // First Query gets the info from the current user
+        db.User.findOne({
+            where: {
+                username: currentUser
+            }
+        })
+        .then(response => {
+            let profileInfo = {
+                username: response.dataValues.username,
+                personalStatement: response.dataValues.personalStatement,
+                hobby1id: response.dataValues.hobby1id,
+                hobby2id: response.dataValues.hobby2id,
+                hobby3id: response.dataValues.hobby3id,
+                avatarURL: response.dataValues.avatarURL
+            }
+    
+            // This saves the current user's favorite hobbies in a separate array for the next query
+            favoriteHobbies.push(profileInfo.hobby1id);
+            favoriteHobbies.push(profileInfo.hobby2id);
+            favoriteHobbies.push(profileInfo.hobby3id);
+    
+            // This matches any user that shares hobbies in common with the current user
+            db.User.findAll({
                 attributes: ['username', 'hobby1id', 'hobby2id', 'hobby3id'],
                 where: {
                     [Op.or]: [
@@ -43,7 +66,7 @@ router.get("/profile/:username", (req, res) => {
                         {hobby3id: favoriteHobbies}
                     ],
                     username: 
-                    {[Op.ne]: currentUser}
+                    {[Op.ne]: currentUser.replace(":", "")}
                 }
             })
             .then(usersData => {
@@ -51,36 +74,19 @@ router.get("/profile/:username", (req, res) => {
                 usersData.forEach(user => {
                     userArray.push(user.dataValues);
                 });
-
-                // This Query gets the user's info for their profile.
-                // Once again, the Current User is hardcoded for now.
-                db.User.findOne({
-                    where: {
-                        username: currentUser
-                    }
-                }).then(response => {
-                    let profileInfo = {
-                        username: response.dataValues.username,
-                        personalStatement: response.dataValues.personalStatement,
-                        hobby1id: response.dataValues.hobby1id,
-                        hobby2id: response.dataValues.hobby2id,
-                        hobby3id: response.dataValues.hobby3id,
-                        avatarURL: response.dataValues.avatarURL
-                    }
-                    console.log(profileInfo);
-
-                    // This bundles up the results of both queries into an object to pass to handlebars
-                    let hbsObjecct = {
-                        minionConnections: userArray,
-                        userProfile: profileInfo
-                    };
-
-                    console.log(hbsObjecct);
-                    res.render("profile", hbsObjecct);
-                });
+    
+                // This bundles up all the info from the previous two queries into a single object to hand to handlebars
+                let hbsObjecct = {
+                    minionConnections: userArray,
+                    userProfile: profileInfo
+                };
+    
+                // This renders the page
+                res.render("profile", hbsObjecct);
             });
-});
-
+        });
+    });
+    
 
 router.get("/login", (req, res) => {
     res.render("login");
