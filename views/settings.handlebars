@@ -1,23 +1,32 @@
 <h1>Settings</h1>
+<h2>Belcome, <span id="username">{{username}}</span></h2>
+<br>
 
-<h2>Select New Avatar</h2>
-<form action="/action_page.php">
+<h3>Select New Avatar</h3>
+<form action="/updateAvatar">
     <input type="checkbox" id="avatar1" name="avatar1" value="DIY">
     <label for="avatar1"><img class="avatar" id="diy" src="../assets/img/diy.jpg"></label><br>
+
     <input type="checkbox" id="avatar2" name="avatar2" value="Karate">
     <label for="avatar2"><img class="avatar" id="karate" src="../assets/img/karate.jpg"></label><br>
+
     <input type="checkbox" id="avatar3" name="avatar3" value="Music">
     <label for="avatar3"><img class="avatar" id="music" src="../assets/img/music.jpg"></label><br>
+
     <input type="checkbox" id="avatar4" name="avatar4" value="Travel">
     <label for="avatar4"><img class="avatar" id="travel" src="../assets/img/travel.jpg"></label><br>
+
     <input type="checkbox" id="avatar5" name="avatar5" value="Weight-Lifting">
     <label for="avatar5"><img class="avatar" id="weight-lifting" src="../assets/img/weight-lifting.jpg"></label><br>
+    
     <input type="checkbox" id="avatar6" name="avatar6" value="Wrestling">
     <label for="avatar6"><img class="avatar" id="wrestling" src="../assets/img/wrestling.jpg"></label><br>
-</form>
 
-<h2>Select New Hobby</h2>
-<form action="/action_page.php">
+    <button class="btn btn-primary" type="submit">Update Avatar</button>
+</form>
+<br>
+<h3>Select New Hobby</h3>
+<form action="/updateHobbies">
     <input type="checkbox" id="hobby1" name="hobby1" value="DIY">
     <label for="hobby1">DIY</label><br>
     <input type="checkbox" id="hobby2" name="hobby2" value="Karate">
@@ -30,12 +39,17 @@
     <label for="hobby5">Weight-Lifting</label><br>
     <input type="checkbox" id="hobby6" name="hobby6" value="Wrestling">
     <label for="hobby6">Wrestling</label><br>
+    <button class="btn btn-primary" type="submit">Update Hobbies</button>
 </form>
+<br>
 
-<h2>Change Personal Statement</h2>
-<form>
+<h3>Change Personal Statement</h3>
+<form id="personalStatementForm" action="/updatePersonalStatement">
     <div class="form-group">
         <label for="exampleFormControlInput1">Personal Statement (1 - 250 characters)</label>
-        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+        <input id="PersonalStatement" name="personalStatement" type="text" class="form-control">
     </div>
+    <button class="btn btn-primary" type="submit">Update Personal Statement</button>
 </form>
+
+<script type="text/javascript" src="/assets/js/settings.js"></script>

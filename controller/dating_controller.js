@@ -97,5 +97,23 @@ router.get("/signup", (req, res) => {
 });
 
 
+// Settings page, hardcoded for now
+router.get("/settings/:username", (req, res) => {
+    let currentUser = req.params.username;
+    res.render("settings", {username: currentUser});
+});
+
+router.post("/updatePersonalStatement", (req, res) => {
+    console.log(req.body.personalStatement);
+    console.log(req.body.username);
+    db.User.update({ personalStatement: req.body.personalStatement}, {
+        where: {
+            username: req.body.username
+        }
+    }).then(() => {
+        res.redirect("/profile/" + req.body.username);
+    })
+});
+
 
 module.exports = router;
