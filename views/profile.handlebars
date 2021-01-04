@@ -1,5 +1,7 @@
 <h1>Bello, <span id="username">{{userProfile.username}}</span>!</h1>
 
+{{#if userProfile.avatarURL}}<img src="{{userProfile.avatarURL}}"><br>{{/if}}
+
 <h2>Personal Statement</h2>
 <div class="container">
     <p>{{userProfile.personalStatement}}</p>
