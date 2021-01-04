@@ -126,5 +126,15 @@ router.post("/updatePersonalStatement", (req, res) => {
     });
 });
 
+router.post("/updateHobbies", (req, res) => {
+    console.log(req.body);
+    db.User.update({hobby1id: req.body.hobby1id, hobby2id: req.body.hobby2id, hobby3id: req.body.hobby3id}, {
+        where: {
+            username: req.body.username
+        }
+    }).then(() => {
+        res.redirect("/profile/" + req.body.username);
+    })
+})
 
 module.exports = router;
