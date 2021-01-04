@@ -1,6 +1,5 @@
 $(document).ready(function() {
     let currentUser = $("#username").text();
-    console.log(currentUser);
 
     $("#personalStatementForm").on("submit", event => {
         event.preventDefault();
@@ -13,8 +12,30 @@ $(document).ready(function() {
         $.post("/updatePersonalStatement", {
             username: currentUser,
             personalStatement: personalStatement
-        }).then(function(){
-            window.location.replace("/profile/" + currentUser)
+        }).then(() => {
+            window.location.replace("/profile/" + currentUser);
+        });
+    }
+
+    $("#updateAvatarForm").on("submit", event => {
+        event.preventDefault();
+        let newAvatar = [];
+        $("#updateAvatarForm").children().filter('input:checked').each(function() {
+            newAvatar.push(this.value)
+        })
+        if (newAvatar.length != 1) {
+            return alert("Please select one avatar");
+        } else {
+            updateAvatar(newAvatar[0])
+        }
+    });
+
+    function updateAvatar(url){
+        $.post("/updateAvatar", {
+            username: currentUser,
+            avatarURL: url
+        }).then(() => {
+            window.location.replace("/profile/" + currentUser);
         });
     }
 
