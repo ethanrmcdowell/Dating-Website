@@ -16,10 +16,8 @@ router.post("/signup", (req, res) => {
     db.User.create({
         password: req.body.password,
         username: req.body.username
-    })
-    .then(function(){
-        res.render("profile");
     });
+        res.redirect("/profile/" + req.body.username);
 });
 
 router.get("/", (req, res) => {
@@ -45,7 +43,7 @@ router.get("/profile/:username", (req, res) => {
                         {hobby3id: favoriteHobbies}
                     ],
                     username: 
-                    {[Op.ne]: currentUser.replace(":", "")}
+                    {[Op.ne]: currentUser}
                 }
             })
             .then(usersData => {
