@@ -104,8 +104,6 @@ router.get("/settings/:username", (req, res) => {
 });
 
 router.post("/updateAvatar", (req, res) => {
-    console.log(req.body.username);
-    console.log(req.body.avatarURL);
     db.User.update({ avatarURL: req.body.avatarURL }, {
         where: {
             username: req.body.username
@@ -116,8 +114,6 @@ router.post("/updateAvatar", (req, res) => {
 });
 
 router.post("/updatePersonalStatement", (req, res) => {
-    console.log(req.body.personalStatement);
-    console.log(req.body.username);
     db.User.update({ personalStatement: req.body.personalStatement}, {
         where: {
             username: req.body.username
@@ -128,14 +124,24 @@ router.post("/updatePersonalStatement", (req, res) => {
 });
 
 router.post("/updateHobbies", (req, res) => {
-    console.log(req.body);
     db.User.update({hobby1id: req.body.hobby1id, hobby2id: req.body.hobby2id, hobby3id: req.body.hobby3id}, {
         where: {
             username: req.body.username
         }
     }).then(() => {
         res.redirect("/profile/" + req.body.username);
-    })
-})
+    });
+});
+
+router.post("/deleteUser", (req, res) => {
+    console.log(req.body);
+    db.User.destroy({
+        where: {
+            username: req.body.username
+        }
+    }).then(() => {
+        res.redirect("/");
+    });
+});
 
 module.exports = router;
