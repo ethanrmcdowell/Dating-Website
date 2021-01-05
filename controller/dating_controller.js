@@ -24,7 +24,7 @@ router.get("/", (req, res) => {
     if(req.user){
         res.redirect("profile");
     }
-    res.render("index")
+    res.render("index", {title: "Minion Mingle"})
 });
 
 // router.get("/profile/:username", isAuthenticated, (req, res) => {
@@ -77,7 +77,8 @@ router.get("/profile/:username", (req, res) => {
             // This bundles up all the info from the previous two queries into a single object to hand to handlebars
             let hbsObjecct = {
                 minionConnections: userArray,
-                userProfile: profileInfo
+                userProfile: profileInfo,
+                title: `${currentUser}'s Profile`
             };
 
             // This renders the page
@@ -88,18 +89,18 @@ router.get("/profile/:username", (req, res) => {
     
 
 router.get("/login", (req, res) => {
-    res.render("login");
+    res.render("login", {title: "Login"});
 });
 
 router.get("/signup", (req, res) => {
-    res.render("signup");
+    res.render("signup", {title: "Sign Up"});
 });
 
 
 // Settings page
 router.get("/settings/:username", (req, res) => {
     let currentUser = req.params.username;
-    res.render("settings", {username: currentUser});
+    res.render("settings", {username: currentUser, title: `${currentUser}'s Settings`});
 });
 
 router.post("/updateAvatar", (req, res) => {
