@@ -144,4 +144,29 @@ router.post("/deleteUser", (req, res) => {
     });
 });
 
+router.get("/messages/:username", (req, res) => {
+    let currentUser = req.params.username;
+    db.Message.findAll({
+        where: {
+          receiver_username: currentUser
+        },
+        include: {
+          model: db.User,
+          attributes: ['username', 'avatarURL']
+        }
+      })
+      .then(data => {
+          let messageArray = []
+        data.forEach(message => {
+            messageArray.push({
+                message: message.dataValues.message,
+                username: message.dataValues.User.dataValues.username,
+                avatarURL: message.dataValues.User.dataValues.avatarURL
+            });
+        });
+        res.render("messages", {title: `${req.params.username}'s Messages`, messages: messageArray});
+    });
+});
+
+
 module.exports = router;
