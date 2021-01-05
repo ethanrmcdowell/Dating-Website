@@ -41,6 +41,13 @@ $(document).ready(function() {
         window.location.replace("/profile/" + currentUser);
     });
 
+    $("#deleteButton").on("click", event => {
+        event.preventDefault();
+        if (confirm("Are you sure you want to delete your profile? We'll miss you!")) {
+            deleteProfile(currentUser);
+        }
+    })
+
     function updatePersonalStatement(personalStatement) {
         $.post("/updatePersonalStatement", {
             username: currentUser,
@@ -69,5 +76,14 @@ $(document).ready(function() {
             window.location.replace("/profile/" + currentUser);
         });
     }
+
+    function deleteProfile(currentUser) {
+        $.post("/deleteUser", {
+            username: currentUser
+        }).then(() => {
+            window.location.replace("/");;
+        })
+    }
+
 
 });
