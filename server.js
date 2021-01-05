@@ -28,7 +28,8 @@ db.sequelize.sync().then(function () {
   app.listen(PORT, function () {
     console.log("APP LISTENING ON PORT " + PORT);
     
-    seed.seedUsers();
+    // seed.seedUsers();
+    // seed.seedMessages();
 
   });
 });

@@ -1,0 +1,12 @@
+<h1>Your Messages</h1>
+
+{{#each messages}}
+    <div class="container">
+        {{#if avatarURL}}<img src="{{avatarURL}}">{{/if}}
+        <p>{{username}}</p>
+        {{#if message}}<p>{{message}}</p>{{/if}}
+        <button class="btn btn-primary replyButton">Reply</button>
+        <button class="btn btn-danger deleteButton">Delete</button>
+    </div>
+    <br>
+{{/each}}
