@@ -1,9 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Bree+Serif&family=Noto+Sans&display=swap');
 
 :root {
+	--lightbg: #eee;
 	--background: #d6eff0;
 	--btnyellow: #ffd200;
 	--navyellow: #f4e87c;
+	--linkyellow: #d9a82f;
 	--powderblue: #9ad1d4;
 	--dimgray: #6b6d76;
 	--richblack: #0e0f19; 
@@ -27,11 +29,34 @@ body {
 nav {
 	position: relative;
 	z-index: 10;
+	display: flex; 
 }
 
 .nav-yellow {
 	background-color: var(--navyellow); 
-	border-bottom: 10px solid (--powderblue) !important; 
+	border-bottom: 10px solid var(--powderblue) !important; 
+}
+
+.nav-link {
+	font: normal normal normal 20px/120% 'Noto Sans', sans-serif;
+	margin-left: 30px; 
+	display: inline-block; 
+	padding: 0 5px; 
+	margin-top: 5px; 
+	color: rgba(179, 117, 46, 0.7) !important;
+}
+
+.nav-link::after {
+	content: '';
+	display: block;
+	margin-top: 5px;
+	border-bottom: 1px solid var(--powderblue);
+	transition: all .3s ease; 
+	transform: scaleX(0); 
+}
+
+.nav-link:hover::after {
+	transform: scaleX(1); 
 }
 
 #background-bubble {
@@ -42,11 +67,14 @@ nav {
 #minion-hero {
 	box-sizing: border-box;
 	position: relative;
+	top: 0;
+	left: 0; 
 	z-index: 0;
-	background-image: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,0), var(--background), var(--background), var(--background)), url('../assets/img/hero.jpg');
+	background-image: linear-gradient(180deg, rgba(255,255,255,0), rgba(255,255,255,0), var(--background), var(--background)), url('/assets/img/hero.jpg');
 	background-position: top center; 
 	background-size: cover;
 	background-attachment: fixed; 
+	width: 100vw;
 	height: 800px;
 }
 
@@ -81,11 +109,38 @@ nav {
 
 .sub-landing::before {
 	content: '♥ ';
+	font-size: 25px; 
 	color: #ff90bf;
-	text-shadow: 1px 1px #c4437a, 1px -1px #c4437a, -1px 1px #c4437a, -1px -1px #c4437a;
+	/* text-shadow: 1px 1px #c4437a, 1px -1px #c4437a, -1px 1px #c4437a, -1px -1px #c4437a; */
+}
+
+@keyframes pulse {
+	0% { transform: scale(1); }
+	50% { transform: scale(1.3); }
+	100% { transform: scale(1); }
+  }
+
+.sub-landing:hover::before {
+	animation: pulse 1s ease infinite;
+}
+
+.container-fluid {
+	padding: 0 !important;
+	margin: 0 !important; 
 }
 
 .mingle {
-	position: relative;
-	top: -200px;
+	padding: 30px 30px 30px 30px;
+	background: var(--lightbg); 
+}
+
+.mingle p {
+	margin: 10px 15px; 
+	line-height: 170%; 
+}
+
+img.minion {
+	height: 85px;
+	object-fit: cover;
+	margin: 0 15px; 
 }
