@@ -156,17 +156,17 @@ router.get("/messages/:username", (req, res) => {
         }
       })
       .then(data => {
-          let messageArray = []
+        let messageArray = []
         data.forEach(message => {
             messageArray.push({
                 id: message.dataValues.id,
                 message: message.dataValues.message,
                 username: message.dataValues.User.dataValues.username,
-                avatarURL: message.dataValues.User.dataValues.avatarURL
+                avatarURL: message.dataValues.User.dataValues.avatarURL,
             });
         });
         console.log(messageArray);
-        res.render("messages", {title: `${req.params.username}'s Messages`, messages: messageArray});
+        res.render("messages", {currentUser: req.params.username, title: `${req.params.username}'s Messages`, messages: messageArray});
     });
 });
 
@@ -178,6 +178,23 @@ router.post("/deleteMessage", (req, res) => {
         }
     }).then(() => {
         res.redirect("/messages/" + req.body.username);        
+    })
+})
+
+router.post("/replyMessage", (req, res) => {
+    db.User.findOne({
+        attributes: ["id"],
+        where: {
+            username: req.body.senderUsername
+        }
+    }).then(response => {
+        console.log(response.dataValues.id)
+
+        db.Message.create({
+            sender_username_id: response.dataValues.id,
+            receiver_username: req.body.receiver_username,
+            message: req.body.message
+        })
     })
 })
 
