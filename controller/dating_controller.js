@@ -16,8 +16,9 @@ router.post("/signup", (req, res) => {
     db.User.create({
         password: req.body.password,
         username: req.body.username
-    });
+    }).then(() => {
         res.redirect("/profile/" + req.body.username);
+    });
 });
 
 router.get("/", (req, res) => {
@@ -134,7 +135,6 @@ router.post("/updateHobbies", (req, res) => {
 });
 
 router.post("/deleteUser", (req, res) => {
-    console.log(req.body);
     db.User.destroy({
         where: {
             username: req.body.username
@@ -165,13 +165,11 @@ router.get("/messages/:username", (req, res) => {
                 avatarURL: message.dataValues.User.dataValues.avatarURL,
             });
         });
-        console.log(messageArray);
         res.render("messages", {currentUser: req.params.username, title: `${req.params.username}'s Messages`, messages: messageArray});
     });
 });
 
 router.post("/deleteMessage", (req, res) => {
-    console.log(req.body.id);
     db.Message.destroy({
         where: {
             id: req.body.id
@@ -188,8 +186,6 @@ router.post("/replyMessage", (req, res) => {
             username: req.body.senderUsername
         }
     }).then(response => {
-        console.log(response.dataValues.id)
-
         db.Message.create({
             sender_username_id: response.dataValues.id,
             receiver_username: req.body.receiver_username,
