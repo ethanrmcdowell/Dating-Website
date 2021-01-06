@@ -16,7 +16,10 @@
 
 <div class="container mb-3">
     <button class="btn btn-primary" id="updateProfile" >Update Profile</button>
+    <button class="btn btn-primary" id="viewMessagesButton">View Your Messages</button>
 </div>
+
+
 
 {{! List of Minion connections for user}}
 <h3>Check out your Minion connections!</h3>
@@ -29,6 +32,7 @@
             {{#if hobby2id}}<li>{{hobby2id}}</li>{{/if}}
             {{#if hobby3id}}<li>{{hobby3id}}</li>{{/if}}
         </ul>
+        <button class="btn btn-primary messageUserButton" value="{{username}}">Message {{username}}!</button>
     {{/each}}
 </ul>
 
