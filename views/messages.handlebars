@@ -6,7 +6,9 @@
         <p>{{username}}</p>
         {{#if message}}<p>{{message}}</p>{{/if}}
         <button class="btn btn-primary replyButton">Reply</button>
-        <button class="btn btn-danger deleteButton">Delete</button>
+        <button class="btn btn-danger deleteButton" id="{{id}}" >Delete</button>
     </div>
     <br>
 {{/each}}
+
+<script type="text/javascript" src="/assets/js/messages.js"></script>
