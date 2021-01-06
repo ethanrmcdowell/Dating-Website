@@ -159,14 +159,27 @@ router.get("/messages/:username", (req, res) => {
           let messageArray = []
         data.forEach(message => {
             messageArray.push({
+                id: message.dataValues.id,
                 message: message.dataValues.message,
                 username: message.dataValues.User.dataValues.username,
                 avatarURL: message.dataValues.User.dataValues.avatarURL
             });
         });
+        console.log(messageArray);
         res.render("messages", {title: `${req.params.username}'s Messages`, messages: messageArray});
     });
 });
+
+router.post("/deleteMessage", (req, res) => {
+    console.log(req.body.id);
+    db.Message.destroy({
+        where: {
+            id: req.body.id
+        }
+    }).then(() => {
+        res.redirect("/messages/" + req.body.username);        
+    })
+})
 
 
 module.exports = router;
