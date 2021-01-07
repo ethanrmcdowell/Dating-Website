@@ -28,7 +28,7 @@ $(document).ready(function(){
             username: username
         })
         .then(function(data){
-            window.location.replace("/profile/" + username);
+            window.location.replace("/login");
         });
     }
 });

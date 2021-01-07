@@ -14,6 +14,12 @@ $(document).ready(function() {
         sendMessage(receiver_username, message);
     });
 
+    $("#logout-button").on("click", (event) => {
+        event.preventDefault();
+        $.post("/logout");
+        window.location.replace("/");
+    });
+
     function sendMessage(receiver_username, message) {
         $.post("/replyMessage", {
             receiver_username: receiver_username,

@@ -167,6 +167,11 @@ img.minion {
 	object-fit: cover; 
 }
 
+#logout-div {
+	text-align: center;
+	padding-bottom: 30px;
+}
+
 .btn-minion,
 .btn-delete {
 	background: var(--btnyellow) !important;

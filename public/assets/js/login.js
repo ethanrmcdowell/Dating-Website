@@ -24,6 +24,7 @@ $(document).ready(function() {
             data: { username: username, password: password },
             success: function(res){
                 console.log("** SUCCESSFUL POST!");
+                window.location.replace("/profile/" + username);
             },
             error: function(err){
                 console.log(err);
