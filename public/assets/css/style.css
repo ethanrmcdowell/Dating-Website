@@ -167,8 +167,9 @@ img.minion {
 	object-fit: cover; 
 }
 
-.logout-button {
-	margin: 0 auto 0 auto;
+#logout-div {
+	text-align: center;
+	padding-bottom: 30px;
 }
 
 .btn-minion,
