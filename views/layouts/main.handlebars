@@ -26,7 +26,10 @@
             <a class="nav-link" href="/profile">Your Profile</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" target="_blank" href="http://localhost:3001/chatindex.html">Chat</a>
+            {{!-- this next line should not be commented if deploying locally --}}
+             {{!-- <a class="nav-link" target="_blank" href="http://localhost:3001/chatindex.html">Chat</a> --}}
+             {{!-- for deploying on heroku  --}}
+            <a class="nav-link" target="_blank" href="https://min-chat-node-express.herokuapp.com/">Chat</a>
           </li>
         </ul>
       </div>
