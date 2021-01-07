@@ -22,6 +22,10 @@ router.post("/signup", (req, res) => {
     res.redirect("/profile/" + req.body.username);
 });
 
+router.post("/logout", (req, res) => {
+    res.redirect("/logout");
+});
+
 router.get("/", (req, res) => {
     res.render("index", {title: "Minion Mingle"})
 });
@@ -87,6 +91,12 @@ router.get("/profile/:username", isAuthenticated, (req, res) => {
 
 router.get("/login", (req, res) => {
     res.render("login", {title: "Login"});
+});
+
+router.get("/logout", (req, res) => {
+    console.log("! ! ! G E T   L O G O U T ! ! !");
+    req.logout();
+    res.redirect("/");
 });
 
 router.get("/signup", (req, res) => {
