@@ -1,20 +1,24 @@
-<img class="minion" id="mm_logo" src="../assets/img/logo.png">
+<div class='container login-container'>
+    <div id="login">
+        <h1>Bello!</h1>
 
-<div class="container" id="login">
-    <p>Login</p>
+        <img src='/assets/img/list_img.png' class='login' alt='Minion' />
+        <p> Sign in to find your one true banana. 🍌 </p>
+    </div>
+    
+    <form id="login-form">
+        <div class="input-group mb-3">
+            <input id="user-name" type="text" class="form-control" placeholder="Username" aria-label="Recipient's username"
+                aria-describedby="basic-addon2">
+        </div>
+
+        <div class="input-group mb-3">
+            <input id="user-pass" type="text" class="form-control" placeholder="Password" aria-label="Recipient's password"
+                aria-describedby="button-addon2">
+        </div>
+
+        <button id="login-button" type="submit" class="btn btn-minion">💖 Banana!</button>
+    </form>
 </div>
-<form id="login-form">
-    <div class="input-group mb-3">
-        <input id="user-name" type="text" class="form-control" placeholder="Username" aria-label="Recipient's username"
-            aria-describedby="basic-addon2">
-    </div>
-
-    <div class="input-group mb-3">
-        <input id="user-pass" type="text" class="form-control" placeholder="Password" aria-label="Recipient's password"
-            aria-describedby="button-addon2">
-    </div>
-
-    <button id="login-button" type="submit" class="btn btn-primary">Log In!</button>
-</form>
 
 <script type="text/javascript" src="/assets/js/login.js"></script>
