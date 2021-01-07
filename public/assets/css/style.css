@@ -170,3 +170,74 @@ img.minion {
 	text-shadow: 1px 1px rgba(179, 117, 46, 0.7);
 	font: 20px/100% 'Noto Sans', sans-serif; 
 }
+
+form > .field {
+	position: relative;
+	margin-top: 40px; 
+	height: 100px; 
+}
+
+form input[type='text'],
+form input[type='password'] {
+	position: relative;
+	margin-bottom: 10px;
+	z-index: 5;
+	border: 0;
+	border-bottom: 3px solid var(--navyellow); 
+	background: transparent; 
+	z-index: 10; 
+}
+
+form.form-style label {
+	font: 20px/100% 'Bree Serif', serif;
+	color: var(--powderblue);
+	letter-spacing: 1px; 
+	text-shadow: 1px 1px #454545; 
+	position: absolute; 
+	transition: all 0.5s ease-in-out;
+	z-index: 1;
+}
+
+form.formstyle input:focus { background: white; }
+
+form.formstyle input:focus + label {
+	top: 100%;
+	margin-top: -30px !important; 
+}
+
+form input:valid {
+	background: white; 
+}
+
+/* form input,
+form label {
+	font: 20px/100% 'Bree Serif', serif;
+	color: var(--powderblue);
+	letter-spacing: 1px; 
+	text-shadow: 1px 1px #454545; 
+	position: relative;
+	display: inline-block;
+	width: 100%;
+}
+
+form label {
+	margin: 10px auto;
+	padding: 0 0 5px 0;
+	top: 36px; 
+	transition: all 0.5s ease-in-out;
+	z-index: 1;
+}
+
+form input[type='text'],
+form input[type='password'] {
+	margin-bottom: 10px;
+	z-index: 5;
+	border: 0;
+	border-bottom: 3px solid var(--navyellow); 
+	background: transparent; 
+}
+
+.filled label {
+	top: 0px;
+	font-size: 1em; 
+} */
