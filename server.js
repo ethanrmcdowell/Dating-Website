@@ -43,7 +43,7 @@ db.sequelize.sync().then(function () {
  })
 
 //========================================
-// Creating my server package for the chat app we will serve this on the port 3001
+// Creating my server package for the chat app we will serve this on the port 3001 just for local hosting 
 const http = require ('http');
 // configuring socket.io 
 const SocketIO = require ('socket.io');
