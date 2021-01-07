@@ -5,10 +5,12 @@ const dating = require("../models/index.js");
 const db = require('../models')
 const {Op} = require('sequelize');
 const isAuthenticated = require("../config/middleware/isAuthenticated");
+const user = require("../models/user");
+
 
 
 router.post("/login", passport.authenticate("local", {
-    successRedirect: "/profile/username",
+    successRedirect: "/profile/" + user.username,
     failureRedirect: "/",
 }));
 
@@ -16,23 +18,17 @@ router.post("/signup", (req, res) => {
     db.User.create({
         password: req.body.password,
         username: req.body.username
-    }).then(() => {
-        res.redirect("/profile/" + req.body.username);
     });
+    res.redirect("/profile/" + req.body.username);
 });
 
 router.get("/", (req, res) => {
-    if(req.user){
-        res.redirect("profile");
-    }
     res.render("index", {title: "Minion Mingle"})
 });
 
-// router.get("/profile/:username", isAuthenticated, (req, res) => {
-router.get("/profile/:username", (req, res) => {
-
+router.get("/profile/:username", isAuthenticated, (req, res) => {
     // Query for finding other users that match hobbies. 
-    let currentUser = req.params.username;
+    let currentUser = req.user;
     let favoriteHobbies = [];
 
     // First Query gets the info from the current user
@@ -97,6 +93,14 @@ router.get("/signup", (req, res) => {
     res.render("signup", {title: "Sign Up"});
 });
 
+router.get("/profile", (req,res) => {
+    if(req.user){
+        res.redirect("/profile/" + req.user);
+    }
+    else{
+        res.redirect("/login");
+    }
+});
 
 // Settings page
 router.get("/settings/:username", (req, res) => {
