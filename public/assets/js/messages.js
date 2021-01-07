@@ -12,7 +12,11 @@ $(document).ready(function() {
         let message = prompt(`What would you like to say to ${receiver_username}?`);
         console.log(message)
         replyMessage(receiver_username, message);
-    })
+    });
+
+    $("#returnButton").on("click", e => {
+        window.location.replace("/profile/" + currentUser);
+    });
 
     function deleteMessage(messageID) {
         $.post("/deleteMessage", {
