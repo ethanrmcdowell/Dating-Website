@@ -1,9 +1,9 @@
 $(document).ready(function() {
     let loginForm = $("#login-form");
-    let userName = $("#user-name");
-    let userPass = $("#user-pass");
+    let userName = $("#username");
+    let userPass = $("#password");
 
-    loginForm.on("submit", function(event) {
+    $(document).on("submit","form", function(event) {
         event.preventDefault();
         let userData = {
             username: userName.val().trim(),
@@ -18,11 +18,16 @@ $(document).ready(function() {
         userPass.val("");
     });
     function loginUser(username, password){
-        $.post("/login", {
-            username: username,
-            password: password
-        }).then(function(){
-            window.location.replace("/profile/" + username);
+        $.ajax({
+            type: "POST",
+            url: "/login",
+            data: { username: username, password: password },
+            success: function(res){
+                console.log("** SUCCESSFUL POST!");
+            },
+            error: function(err){
+                console.log(err);
+            }
         });
     }
 });

@@ -1,58 +1,61 @@
-<h1>Settings</h1>
-<h2>Belcome, <span id="username">{{username}}</span></h2>
-<br>
+<div class='container settings'>
+    <h1>Settings</h1>
+    <h2>Belcome, <span id="username">{{username}}</span>!</h2>
+    <br>
 
-<h3>Select New Avatar</h3>
-<form id="updateAvatarForm" action="/updateAvatar">
-    <input type="checkbox" id="avatar1" name="avatar1" value="../assets/img/diy.jpg">
-    <label for="avatar1"><img class="avatar" id="diy" src="../assets/img/diy.jpg"></label><br>
+    <h3>Select New Avatar</h3>
+    <form id="updateAvatarForm" action="/updateAvatar">
+        <input type="checkbox" id="avatar1" name="avatar1" value="../assets/img/diy.jpg">
+        <label for="avatar1"><img class="avatar" id="diy" src="../assets/img/diy.jpg"></label><br>
 
-    <input type="checkbox" id="avatar2" name="avatar2" value="../assets/img/karate.jpg">
-    <label for="avatar2"><img class="avatar" id="karate" src="../assets/img/karate.jpg"></label><br>
+        <input type="checkbox" id="avatar2" name="avatar2" value="../assets/img/karate.jpg">
+        <label for="avatar2"><img class="avatar" id="karate" src="../assets/img/karate.jpg"></label><br>
 
-    <input type="checkbox" id="avatar3" name="avatar3" value="../assets/img/music.jpg">
-    <label for="avatar3"><img class="avatar" id="music" src="../assets/img/music.jpg"></label><br>
+        <input type="checkbox" id="avatar3" name="avatar3" value="../assets/img/music.jpg">
+        <label for="avatar3"><img class="avatar" id="music" src="../assets/img/music.jpg"></label><br>
 
-    <input type="checkbox" id="avatar4" name="avatar4" value="../assets/img/travel.jpg">
-    <label for="avatar4"><img class="avatar" id="travel" src="../assets/img/travel.jpg"></label><br>
+        <input type="checkbox" id="avatar4" name="avatar4" value="../assets/img/travel.jpg">
+        <label for="avatar4"><img class="avatar" id="travel" src="../assets/img/travel.jpg"></label><br>
 
-    <input type="checkbox" id="avatar5" name="avatar5" value="../assets/img/weight-lifting.jpg">
-    <label for="avatar5"><img class="avatar" id="weight-lifting" src="../assets/img/weight-lifting.jpg"></label><br>
-    
-    <input type="checkbox" id="avatar6" name="avatar6" value="../assets/img/wrestling.jpg">
-    <label for="avatar6"><img class="avatar" id="wrestling" src="../assets/img/wrestling.jpg"></label><br>
+        <input type="checkbox" id="avatar5" name="avatar5" value="../assets/img/weight-lifting.jpg">
+        <label for="avatar5"><img class="avatar" id="weight-lifting" src="../assets/img/weight-lifting.jpg"></label><br>
+        
+        <input type="checkbox" id="avatar6" name="avatar6" value="../assets/img/wrestling.jpg">
+        <label for="avatar6"><img class="avatar" id="wrestling" src="../assets/img/wrestling.jpg"></label><br>
 
-    <button class="btn btn-primary" type="submit">Update Avatar</button>
-</form>
-<br>
-<h3>Select New Hobby</h3>
-<form id="updateHobbiesForm" action="/updateHobbies">
-    <input type="checkbox" id="hobby1" name="hobby1" value="DIY">
-    <label for="hobby1">DIY</label><br>
-    <input type="checkbox" id="hobby2" name="hobby2" value="Karate">
-    <label for="hobby2">Karate</label><br>
-    <input type="checkbox" id="hobby3" name="hobby3" value="Music">
-    <label for="hobby3">Music</label><br>
-    <input type="checkbox" id="hobby4" name="hobby4" value="Travel">
-    <label for="hobby4">Travel</label><br>
-    <input type="checkbox" id="hobby5" name="hobby5" value="Weight-Lifting">
-    <label for="hobby5">Weight-Lifting</label><br>
-    <input type="checkbox" id="hobby6" name="hobby6" value="Wrestling">
-    <label for="hobby6">Wrestling</label><br>
-    <button class="btn btn-primary" type="submit">Update Hobbies</button>
-</form>
-<br>
+        <div class='no-flex'><button class="btn btn-minion" type="submit">Update Avatar</button></div>
+    </form>
+    <br>
+    <h3>Select New Hobby</h3>
+    <form id="updateHobbiesForm" action="/updateHobbies">
+        <input type="checkbox" id="hobby1" name="hobby1" value="DIY">
+        <label for="hobby1">DIY</label><br>
+        <input type="checkbox" id="hobby2" name="hobby2" value="Karate">
+        <label for="hobby2">Karate</label><br>
+        <input type="checkbox" id="hobby3" name="hobby3" value="Music">
+        <label for="hobby3">Music</label><br>
+        <input type="checkbox" id="hobby4" name="hobby4" value="Travel">
+        <label for="hobby4">Travel</label><br>
+        <input type="checkbox" id="hobby5" name="hobby5" value="Weight-Lifting">
+        <label for="hobby5">Weight-Lifting</label><br>
+        <input type="checkbox" id="hobby6" name="hobby6" value="Wrestling">
+        <label for="hobby6">Wrestling</label><br>
+        <button class="btn btn-minion" type="submit">Update Hobbies</button>
+    </form>
+    <br>
 
-<h3>Change Personal Statement</h3>
-<form id="personalStatementForm" action="/updatePersonalStatement">
-    <div class="form-group">
-        <label for="exampleFormControlInput1">Personal Statement (1 - 250 characters)</label>
-        <input id="PersonalStatement" name="personalStatement" type="text" class="form-control">
-    </div>
-    <button class="btn btn-primary" type="submit">Update Personal Statement</button>
-</form>
-<br>
-<button id="returnButton" class="btn btn-primary">Return to Profile</button>
-<button id="deleteButton" class="btn btn-danger">Delete Profile</button>
+    <h3>Change Personal Statement</h3>
+    <form id="personalStatementForm" action="/updatePersonalStatement">
+        <div class="form-group">
+            <label for="exampleFormControlInput1">Personal Statement (1 - 250 characters)</label>
+            <input id="PersonalStatement" name="personalStatement" type="text" class="form-control">
+        </div>
+        <button class="btn btn-minion" type="submit">Update Personal Statement</button>
+    </form>
+    <br>
+    <button id="returnButton" class="btn btn-minion">Return to Profile</button>
+    <button id="deleteButton" class="btn btn-delete">Delete Profile</button>
+
+</div>
 
 <script type="text/javascript" src="/assets/js/settings.js"></script>

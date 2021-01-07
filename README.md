@@ -9,6 +9,7 @@ Minion mingle is here to match individuals based on shared interests. It offers 
 - [Dependencies](#Dependencies)
 - [Screenshots](#Screenshots)
 - [Contributors](#Contributors)
+- [Website Link](#Link)
 
 ## Dependencies
 
@@ -32,3 +33,7 @@ Minion mingle is here to match individuals based on shared interests. It offers 
 * [Hannah Elliott](https://github.com/nova-codes)
 * [Courtney Swanson](https://github.com/cswanson52)
 * [Andrea Grant](https://github.com/aegrant08)
+
+## Link
+
+https://the-minion-mingle.herokuapp.com/

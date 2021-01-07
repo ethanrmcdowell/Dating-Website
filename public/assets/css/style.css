@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Bree+Serif&family=Noto+Sans&display=swap');
 
 :root {
-	--lightbg: #eee;
+	--lightbg: #fcfcfc;
 	--background: #d6eff0;
 	--btnyellow: #ffd200;
 	--navyellow: #f4e87c;
@@ -10,6 +10,7 @@
 	--dimgray: #6b6d76;
 	--richblack: #0e0f19; 
 	--textcolor: #232323;
+	--delete: #dc3545;
 }
 
 * {
@@ -132,6 +133,7 @@ nav {
 .mingle {
 	padding: 30px 30px 30px 30px;
 	background: var(--lightbg); 
+	border-radius: 5px; 
 }
 
 .mingle p {
@@ -146,13 +148,14 @@ img.minion {
 }
 
 .login-container {
-	background-color: #fcfcfc;
+	background: var(--lightbg); 
 	margin: 30px auto;
 	padding: 30px !important;
 	border-radius: 5px; 
 }
 
-#login h1 {
+#login h1,
+.settings h1 {
 	font: 50px/100% 'Bree Serif', serif;
 	color: var(--btnyellow);
 	margin-bottom: 30px; 
@@ -164,28 +167,38 @@ img.minion {
 	object-fit: cover; 
 }
 
-.btn-minion {
+.btn-minion,
+.btn-delete {
 	background: var(--btnyellow) !important;
 	color: white !important;
 	text-shadow: 1px 1px rgba(179, 117, 46, 0.7);
 	font: 20px/100% 'Noto Sans', sans-serif; 
+	margin: 15px 0 0 0; 
 }
 
-form > .field {
+.btn-delete {
+	background: var(--delete) !important;
+	text-shadow: 1px 1px rgba(114, 32, 40, 0.7);
+}
+
+form.form-style .field {
 	position: relative;
 	margin-top: 40px; 
-	height: 100px; 
+	height: 50px; 
 }
 
-form input[type='text'],
-form input[type='password'] {
+form.form-style input[type='text'],
+form.form-style input[type='password'] {
 	position: relative;
 	margin-bottom: 10px;
 	z-index: 5;
+	top: 0;
+	left: 0; 
 	border: 0;
 	border-bottom: 3px solid var(--navyellow); 
+	padding: 5px; 
 	background: transparent; 
-	z-index: 10; 
+	z-index: 1; 
 }
 
 form.form-style label {
@@ -194,50 +207,172 @@ form.form-style label {
 	letter-spacing: 1px; 
 	text-shadow: 1px 1px #454545; 
 	position: absolute; 
+	width: 100%;
+	top: 0;
+	bottom: 0;
+	left: 0;  
 	transition: all 0.5s ease-in-out;
-	z-index: 1;
+	z-index: 2;
+	cursor: text; 
 }
 
-form.formstyle input:focus { background: white; }
+form.form-style input:focus { 
+	background: white; 
+	outline: var(--powderblue); }
 
-form.formstyle input:focus + label {
-	top: 100%;
-	margin-top: -30px !important; 
+/* form.form-style input:not(:placeholder-shown) + label  */
+
+form.form-style input:focus + label,
+form.form-style input:valid + label {
+	top: -30px;
 }
 
-form input:valid {
+form.form-style input:valid {
 	background: white; 
 }
 
-/* form input,
-form label {
-	font: 20px/100% 'Bree Serif', serif;
-	color: var(--powderblue);
-	letter-spacing: 1px; 
-	text-shadow: 1px 1px #454545; 
-	position: relative;
-	display: inline-block;
+.form-style {
+	display: block;
 	width: 100%;
+	font-size: 1rem;
+	font-weight: 400;
+	line-height: 1.5;
+	transition: all 0.5s ease; 
 }
 
-form label {
-	margin: 10px auto;
-	padding: 0 0 5px 0;
-	top: 36px; 
-	transition: all 0.5s ease-in-out;
-	z-index: 1;
+.settings {
+	background: var(--lightbg); 
+	margin: 30px auto; 
+	padding: 30px !important;
+	border-radius: 5px; 
 }
 
-form input[type='text'],
-form input[type='password'] {
-	margin-bottom: 10px;
-	z-index: 5;
-	border: 0;
-	border-bottom: 3px solid var(--navyellow); 
-	background: transparent; 
+.settings h2 {
+	font: italic 30px/100% 'Noto Sans', sans-serif;
+	color: var(--powderblue);
+	text-shadow: 1px 1px #454545; 
 }
 
-.filled label {
-	top: 0px;
-	font-size: 1em; 
-} */
+#username {
+	border-bottom: 1px solid var(--navyellow); 
+	font-style: normal;
+}
+
+.settings h3 {
+	font: 13px/100% 'Bree Serif', serif;
+	color: #454545;
+	text-transform: uppercase;
+	letter-spacing: 2px; 
+}
+
+#updateAvatarForm,
+#updateHobbiesForm {
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly; 
+	flex-flow: row wrap;
+}
+
+#updateHobbiesForm {
+	align-items: flex-start;
+	flex-flow: column nowrap;
+}
+
+#updateAvatarForm input[type='checkbox'],
+#updateHobbiesForm input[type='checkbox'] {
+	display: none;
+	position: absolute;
+	left: -9999px;
+}
+
+#updateAvatarForm label {
+	border: 1px solid var(--powderblue);
+	position: relative;
+	display: block;
+	cursor: pointer;
+}
+
+#updateAvatarForm label::before {
+	content: '';
+	background-color: var(--powderblue);
+	color: #454545;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 50%;
+	border: 1px solid #454545;
+	position: absolute;
+	top: -5px;
+	left: -5px;
+	width: 25px;
+	height: 25px;
+	transform: scale(0);
+	transition-duration: 0.4s; 
+	z-index: 2;
+}
+
+#updateAvatarForm label img {
+	width: 100px;
+	height: 100px;
+	object-fit: cover;
+	transition-duration: 0.2s;
+  	transform-origin: 50% 50%;
+}
+
+#updateAvatarForm input[type='checkbox']:checked + label {
+	border-color: var(--powderblue);
+}
+
+#updateAvatarForm input[type='checkbox']:checked + label::before {
+	content: '✓';
+	background-color: var(--powderblue);
+	transform: scale(1);
+}
+
+#updateAvatarForm input[type='checkbox']:checked + label img {
+	transform: scale(0.95);
+	z-index: -1;
+}
+
+.no-flex {
+	flex: 0 0 100%;
+}
+
+#updateHobbiesForm label {
+	position: relative;
+	padding-left: 35px; 
+	cursor: pointer;
+}
+
+#updateHobbiesForm label::before {
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 20px;
+	height: 20px;
+	margin: 3px; 
+	border: 1px solid var(--powderblue);
+	background: white;
+	border-radius: 3px;
+}
+
+#updateHobbiesForm label::after {
+	content: '\2713\0020';
+	position: absolute;
+	top: .15em;
+	left: .22em;
+	font: 22px/0.8 'Lucida Sans Unicode', 'Arial Unicode MS', Arial; 
+	color: var(--btnyellow);
+	transition: all 0.2s;
+}
+
+#updateHobbiesForm input[type='checkbox']:not(:checked) + label::after {
+	opacity: 0;
+	transform: scale(0);
+}
+
+#updateHobbiesForm input[type='checkbox']:checked + label::after {
+	opacity: 1;
+	transform: scale(1);
+}
