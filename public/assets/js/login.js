@@ -1,7 +1,7 @@
 $(document).ready(function() {
     let loginForm = $("#login-form");
-    let userName = $("#user-name");
-    let userPass = $("#user-pass");
+    let userName = $("#username");
+    let userPass = $("#password");
 
     $(document).on("submit","form", function(event) {
         event.preventDefault();
