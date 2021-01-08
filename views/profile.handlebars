@@ -1,38 +1,41 @@
+<div class='container settings'>
 <h1>Bello, <span id="username">{{userProfile.username}}</span>!</h1>
 
-{{#if userProfile.avatarURL}}<img src="{{userProfile.avatarURL}}"><br>{{/if}}
+<div class="container mb-3 user-items">
+{{#if userProfile.avatarURL}}<img src="{{userProfile.avatarURL}}" class='profile-pic' alt="User avatar"><br>{{/if}}
 
-<h2>Personal Statement</h2>
+    <div class='btn-con'>
+        <button class="btn btn-minion" id="updateProfile">Update Profile</button>
+        <button class="btn btn-minion" id="viewMessagesButton">View Your Messages</button>
+    </div>
+</div>
+
+<h3>Personal Statement</h3>
 <div class="container">
     <p>{{userProfile.personalStatement}}</p>
 </div>
 
-<h2>Your faborite hobbies!</h2>
+<h3>Your faborite hobbies!</h3>
 <ul class="hobby-list">
     {{#if userProfile.hobby1id}}<li>{{userProfile.hobby1id}}</li>{{/if}}
     {{#if userProfile.hobby2id}}<li>{{userProfile.hobby2id}}</li>{{/if}}
     {{#if userProfile.hobby3id}}<li>{{userProfile.hobby3id}}</li>{{/if}}
 </ul>
 
-<div class="container mb-3">
-    <button class="btn btn-primary" id="updateProfile" >Update Profile</button>
-    <button class="btn btn-primary" id="viewMessagesButton">View Your Messages</button>
-</div>
-
 
 
 {{! List of Minion connections for user}}
-<h3>Check out your Minion connections!</h3>
+<h2>Check out your Minion connections!</h2>
 
 <ul class="connections-list">
     {{#each minionConnections}}
-        <li>{{username}}</li>
-        <ul>Enjoys:
+        <li class='user-connect'>{{username}} enjoys:</li>
+        <ul>
             {{#if hobby1id}}<li>{{hobby1id}}</li>{{/if}}
             {{#if hobby2id}}<li>{{hobby2id}}</li>{{/if}}
             {{#if hobby3id}}<li>{{hobby3id}}</li>{{/if}}
         </ul>
-        <button class="btn btn-primary messageUserButton" value="{{username}}">Message {{username}}!</button>
+        <button class="btn btn-pblue messageUserButton" value="{{username}}">Message {{username}}!</button>
     {{/each}}
 </ul>
 
@@ -40,6 +43,7 @@
     <form id="logout-form" class='form-style'>
         <button id="logout-button" type="submit" class="btn btn-minion">💖 Log out!</button>
     </form>
+</div>
 </div>
 
 <script type="text/javascript" src="/assets/js/profile.js"></script>

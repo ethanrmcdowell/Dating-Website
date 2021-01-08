@@ -25,6 +25,7 @@ body {
 	color: var(--textcolor); 
 	padding: 0;
 	margin: 0; 
+	padding-bottom: 30px; 
 }
 
 nav {
@@ -71,12 +72,13 @@ nav {
 	top: 0;
 	left: 0; 
 	z-index: 0;
-	background-image: linear-gradient(180deg, rgba(255,255,255,0), rgba(255,255,255,0), var(--background), var(--background)), url('/assets/img/hero.jpg');
+	background-image: linear-gradient(180deg, rgba(255,255,255,0), rgba(255,255,255,0), rgba(255,255,255,0), var(--background), var(--background), var(--background)), url('/assets/img/hero.jpg');
 	background-position: top center; 
 	background-size: cover;
 	background-attachment: fixed; 
-	width: 100vw;
+	width: 100%;
 	height: 800px;
+	box-sizing: border-box; 
 }
 
 .top {
@@ -134,11 +136,16 @@ nav {
 	padding: 30px 30px 30px 30px;
 	background: var(--lightbg); 
 	border-radius: 5px; 
+	margin-bottom: 30px !important; 
 }
 
 .mingle p {
 	margin: 10px 15px; 
 	line-height: 170%; 
+}
+
+.card {
+	margin: 10px;
 }
 
 img.minion {
@@ -173,7 +180,8 @@ img.minion {
 }
 
 .btn-minion,
-.btn-delete {
+.btn-delete,
+.btn-pblue {
 	background: var(--btnyellow) !important;
 	color: white !important;
 	text-shadow: 1px 1px rgba(179, 117, 46, 0.7);
@@ -184,6 +192,11 @@ img.minion {
 .btn-delete {
 	background: var(--delete) !important;
 	text-shadow: 1px 1px rgba(114, 32, 40, 0.7);
+}
+
+.btn-pblue {
+	background: var(--powderblue) !important;
+	text-shadow: 1px 1px rgba(80, 133, 136, 0.7);
 }
 
 form.form-style .field {
@@ -245,7 +258,8 @@ form.form-style input:valid {
 	transition: all 0.5s ease; 
 }
 
-.settings {
+.settings,
+.profile {
 	background: var(--lightbg); 
 	margin: 30px auto; 
 	padding: 30px !important;
@@ -259,13 +273,13 @@ form.form-style input:valid {
 }
 
 #username {
-	border-bottom: 1px solid var(--navyellow); 
+	border-bottom: 1px solid var(--powderblue); 
 	font-style: normal;
 }
 
 .settings h3 {
 	font: 13px/100% 'Bree Serif', serif;
-	color: #454545;
+	color: var(--powderblue);
 	text-transform: uppercase;
 	letter-spacing: 2px; 
 }
@@ -380,4 +394,39 @@ form.form-style input:valid {
 #updateHobbiesForm input[type='checkbox']:checked + label::after {
 	opacity: 1;
 	transform: scale(1);
+}
+
+.connections-list {
+	margin: 30px;
+}
+
+.connections-list ul {
+	list-style-image: url("/assets/img/list_img_sm.png"); 
+  }
+
+.user-connect {
+	list-style-type: none;
+	font: 20px/100% 'Bree Serif', sans-serif;
+	color: var(--btnyellow); 
+	margin-top: 30px;
+	margin-bottom: 10px; 
+	margin-left: -40px; 
+}
+
+.profile-pic {
+	width: 150px;
+	height: 150px;
+	border: 1px solid var(--powderblue); 
+	float: left; 
+}
+
+.user-items {
+	display: flex;
+	align-items: center;
+}
+
+.btn-con {
+	display: flex;
+	flex-flow: column nowrap; 
+	margin-left: 15px; 
 }
